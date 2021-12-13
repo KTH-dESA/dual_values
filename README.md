@@ -6,17 +6,17 @@
 - GNU MathProg [Will google-group](https://groups.google.com/g/osemosys/c/er3k6kaV39o/m/kIhri_lnAAAJ?utm_medium=email&utm_source=footer)
 To the model file you can add at the end the equation of interest (e.g.):
 
-table ProductionDual
-{r in REGION, l in TIMESLICE, f in FUEL, y in YEAR: <br />
-EBa11_EnergyBalanceEachTS5[r,l,f,y].dual <> 0} <br />
-OUT "CSV" <br />
-ResultsPath & "/ProductionDual.csv" : <br />
-r~REGION, l~TIMESLICE, f~FUEL, y~YEAR, <br />
-EBa11_EnergyBalanceEachTS5[r,l,f,y].dual~DUAL, <br />
-EBa11_EnergyBalanceEachTS5[r,l,f,y].lb~LB, <br />
-EBa11_EnergyBalanceEachTS5[r,l,f,y].ub~UP, <br />
-EBa11_EnergyBalanceEachTS5[r,l,f,y].val~VALUE, <br />
-EBa11_EnergyBalanceEachTS5[r,l,f,y].status~STATUS <br />
+<pre><code>table ProductionDual
+{r in REGION, l in TIMESLICE, f in FUEL, y in YEAR:
+EBa11_EnergyBalanceEachTS5[r,l,f,y].dual <> 0}
+OUT "CSV"
+ResultsPath & "/ProductionDual.csv" : 
+r~REGION, l~TIMESLICE, f~FUEL, y~YEAR, 
+EBa11_EnergyBalanceEachTS5[r,l,f,y].dual~DUAL, 
+EBa11_EnergyBalanceEachTS5[r,l,f,y].lb~LB,
+EBa11_EnergyBalanceEachTS5[r,l,f,y].ub~UP,
+EBa11_EnergyBalanceEachTS5[r,l,f,y].val~VALUE,
+EBa11_EnergyBalanceEachTS5[r,l,f,y].status~STATUS </code></pre>
 
 - CBC [Vignesh google group](https://groups.google.com/g/osemosys/c/er3k6kaV39o/m/I_cg4ZM7DQAJ?utm_medium=email&utm_source=footer)
 cbc <abc.lp> solve solu <abc_sol.txt> -printing all
