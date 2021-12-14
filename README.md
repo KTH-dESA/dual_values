@@ -2,6 +2,11 @@
 
 Add scripts to extract if some one is missing for any of solvers in the /src folder
 
+## Useful links to start reading from on dual values
+[LAB MJ2383](https://mybinder.org/v2/gh/KTH-dESA/MJ2383/main?filepath=MJ2383_Lab_3.ipynb)
+
+[Documentation for the TIMES Model](https://iea-etsap.org/docs/Documentation_for_the_TIMES_Model-Part-I.pdf)
+
 ## Solvers
 ### GNU MathProg [(Will OSeMOSYS google group)](https://groups.google.com/g/osemosys/c/er3k6kaV39o/m/kIhri_lnAAAJ?utm_medium=email&utm_source=footer)
 To the model file you can add at the end the equation of interest (e.g.):
