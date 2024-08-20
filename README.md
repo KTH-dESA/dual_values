@@ -30,8 +30,47 @@ cbc <abc.lp> solve solu <abc_sol.txt> -printing all
 /src are two scripts that are similar to extract the desired dual values
 
 ### Gurobi
-**please add here**
+```
+# %%
+import gurobipy as gp
+import pandas as pd
 
+# %%
+# read lp file
+lp_file = gp.read("out/clews.lp")
+
+# optimize
+lp_file.optimize()
+
+# %%
+# dictionary over the dual values
+dual_v = {constr.ConstrName: constr.Pi for constr in lp_file.getConstrs() }
+
+# %%
+# equations of interest EBb4 or EBa11 or E8
+# key is the equation name
+# val is the dual_value
+
+eq = []
+value = []
+for key, val in dual_v.items():
+    if "EBb4" in key or "EBa11" in key or "E8" in key:
+          eq.append(key)
+          value.append(val)
+# DataFrame Columns "Constrain" = equeation, "Dual_Value" = value
+df = pd.DataFrame({'Constraint': eq, 'Dual_Value':value })
+
+
+# %%
+# write to csv
+df.to_csv("dual_values.csv")
+```
+The csv looks like this:
+```
+Constraint	Dual_Value
+EBa11_EnergyBalanceEachTS5(RE1,S11,ADSL,2022)	2.81E-05
+EBb4_EnergyBalanceEachYear4(RE1,LWHE,2025)	0.000728232
+```
 ## Equations that has be used
 
 - s.t. EBb4_EnergyBalanceEachYear4{r in REGION, f in FUEL, y in YEAR}: 
